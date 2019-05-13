@@ -19,7 +19,15 @@ const store = createStore(counter);
 // where the store "lives".
 ReactDOM.render(
   <Provider store={store}>
-    <Counter />
+          <Counter 
+            value={store.getState()} 
+            onIncrement={()=> 
+                store.dispatch({type:'INCREMENT'})
+            }
+              onDecrement={()=>
+                store.dispatch({type:'DECREMENT'})
+            }
+        />
   </Provider>,
   document.getElementById('root')
 );
