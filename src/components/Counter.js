@@ -4,6 +4,9 @@ import { increment, decrement } from '../actions';
 
 class Counter extends Component {
     incrementIfOdd = () => {
+            if (this.props.value % 2 !== 0) {
+                this.props.onIncrement()
+              }
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
     };
@@ -11,6 +14,7 @@ class Counter extends Component {
     incrementAsync = () => {
         // Stretch Problem: Implement an increment function that
         // increments after waiting for one second
+        setTimeout(this.props.onIncrement, 1000)
     };
 
     render() {
